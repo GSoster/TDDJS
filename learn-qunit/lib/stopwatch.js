@@ -9,9 +9,12 @@ var T = (function () {
     return timeStarted;
   };
 
-  var stopTimer = function (stopTime) {
-    timeElapsed = stopTime - timeStarted;
-    return stopTime;
+  /**
+  * receives the time in wich it was stopped. returns timeElapsed since beginning.
+  */
+  var stopTimer = function (endTime) {
+    timeElapsed = endTime - timeStarted;
+    return timeElapsed;
   }
 
   var timing = function () {

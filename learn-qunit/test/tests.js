@@ -14,9 +14,10 @@ test('startTimer() starts counting from *NOW* (when instructed)', function (){
 
 test('stopTimer() stops counting after 2 seconds', function(){
   var now = new Date().getTime();
-  var expected =  now + 2000;//2s
+  var expected = 2000;// timeElapsed: 2s
+  var endTime = now + expected;
   T.startTimer(now);
-  var result = T.stopTimer(expected);//2s
+  var result = T.stopTimer(endTime);//2s
   equal(result, expected, true);
 });
 

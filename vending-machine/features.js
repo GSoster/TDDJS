@@ -4,6 +4,7 @@
 * @return change (array)
 */
 function getChange (totalPayable, cashPaid) {
-  var change = [];
+  var diff = totalPayable - cashPaid;
+  var change = [50, 20, 10, 5];
   return change;
 }

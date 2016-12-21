@@ -45,7 +45,14 @@ test('startTimer should work even without parameter', function () {
   equal(T.startTimer(), startTime, true);
 });
 
-/*test('resetTimer should reset to zero the startTimer and elapsed time', function () {
+test('resetTimer should reset to zero the startTimer and elapsed time', function () {
   T.resetTimer();
   T.startTimer();
-});*/
+  var endTime = new Date().getTime() + 3000;//plus 3s
+  equal(T.stopTimer(endTime), 3000, true);//Total elapsed time: 3s
+  T.resetTimer();
+  T.startTimer();
+  var endTime = new Date().getTime() + 6000;//plus 6s
+  //since we reseted the timer the time elapsed should be 6s and not 9s
+  equal(T.stopTimer(endTime), 6000, true);
+});

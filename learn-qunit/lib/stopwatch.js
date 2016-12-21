@@ -9,10 +9,16 @@ var T = (function () {
     return timeStarted;
   };
 
+  var stopTimer = function (stopTime) {
+    timeElapsed = stopTime - timeStarted;
+    return stopTime;
+  }
+
  //allow external access to private variables & methods by returning them:
   return {
     timeStarted: timeStarted,
     timeElapsed: timeElapsed,
-    startTimer: startTimer
+    startTimer: startTimer,
+    stopTimer: stopTimer
   };
 }());

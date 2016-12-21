@@ -13,6 +13,7 @@ test('startTimer() starts counting from *NOW* (when instructed)', function (){
 
 
 test('stopTimer() stops counting after 2 seconds', function(){
+  T.resetTimer();
   var now = new Date().getTime();
   var expected = 2000;// timeElapsed: 2s
   var endTime = now + expected;
@@ -23,6 +24,7 @@ test('stopTimer() stops counting after 2 seconds', function(){
 
 
 test('stop timer two times: first with 5s elapsed time and second with 7s. Total elapsed time must be 12s', function () {
+  T.resetTimer();
   //first we stop the timer after 5s, so the total elapsed time will be 5s (5000)
   var startTime = new Date().getTime();
   var timeElapsed = 5000;

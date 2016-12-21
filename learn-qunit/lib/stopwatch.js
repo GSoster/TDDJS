@@ -1,11 +1,10 @@
 var T = (function () {
   'use strict';
   var timeElapsed = 0;//number of miliseconds since timerStarted
-  var timeStarted = 0;//timestamp when timer was started  
+  var timeStarted = 0;//timestamp when timer was started
 
   var startTimer = function (startTime) {
     timeStarted = startTime;
-    console.log("Start time: " + startTime);
     return timeStarted;
   };
 
@@ -13,7 +12,8 @@ var T = (function () {
   * receives the time in wich it was stopped. returns timeElapsed since beginning.
   */
   var stopTimer = function (endTime) {
-    timeElapsed = endTime - timeStarted;
+    //it sums the elapsed time in case it is not the first time the timer is being stopped.
+    timeElapsed = endTime - timeStarted + timeElapsed;
     return timeElapsed;
   }
 
@@ -21,6 +21,11 @@ var T = (function () {
     setInterval(function () {
       updateUI();
     }, 20);
+  };
+
+  var resetTimer = function () {
+    timeElapsed = 0;
+    timeStarted = 0;
   };
 
   var updateUI = function  () {
@@ -36,5 +41,6 @@ var T = (function () {
     timeElapsed: timeElapsed,
     startTimer: startTimer,
     stopTimer: stopTimer,
+    resetTimer: resetTimer
   };
 }());

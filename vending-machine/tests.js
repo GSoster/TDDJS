@@ -41,6 +41,12 @@ test('getChange(12, 400) should return [200, 100, 50, 20, 5, 2, 1]', function (a
   assert.deepEqual(result, expected);
 });
 
+test('getChange(10, 5) should throw error: cashPaid should be higher than totalPayable', function (assert){
+  throws(function() {
+        getChange(10, 5);
+    }, Error, "cashPaid should be higher than totalPayable");
+});
+
 //#########################################################
 //example tests, can be removed later
 /*test('this sample test should aways pass!', function (assert){

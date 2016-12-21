@@ -37,7 +37,7 @@ test('getChange(486, 600) should equal [100, 10, 2, 2]', function (assert) {
 
 test('getChange(12, 400) should return [200, 100, 50, 20, 5, 2, 1]', function (assert) {
   var result = getChange(12, 400);
-  var expected = [200, 100, 50, 20, 5, 2, 1];
+  var expected = [200, 100, 50, 20, 10, 5, 2, 1];
   assert.deepEqual(result, expected);
 });
 

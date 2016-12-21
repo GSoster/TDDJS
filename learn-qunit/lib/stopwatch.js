@@ -1,7 +1,7 @@
 var T = (function () {
   'use strict';
   var timeElapsed = 0;//number of miliseconds since timerStarted
-  var timeStarted = 0;//timestamp when timer was started
+  var timeStarted = 0;//timestamp when timer was started  
 
   var startTimer = function (startTime) {
     timeStarted = startTime;

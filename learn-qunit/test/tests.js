@@ -22,10 +22,17 @@ test('stopTimer() stops counting after 2 seconds', function(){
 });
 
 
-test('timeStarted should continue couting after stopTimer()', function () {
+test('stop timer two times: first with 5s elapsed time and second with 7s. Total elapsed time must be 12s', function () {
+  //first we stop the timer after 5s, so the total elapsed time will be 5s (5000)
   var startTime = new Date().getTime();
-  var endTime = startTime + 5000;
-  var timeElapsed = 0;
+  var timeElapsed = 5000;
+  var endTime = startTime + timeElapsed;
   T.startTimer(startTime);
   equal(T.stopTimer(endTime), 5000, true);//stoped after 5s
+  //then we start it and stop it again after 7s (7000), so the total elapsed time should be 12s (12000)
+  startTime = new Date().getTime();
+  timeElapsed = 7000;
+  endTime = startTime + timeElapsed;
+  T.startTimer(startTime);
+  equal(T.stopTimer(endTime), 12000, true);//12s since it is 5s from the first stop plus 7s  from the second stop
 });

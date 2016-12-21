@@ -4,14 +4,11 @@
     <meta charset="utf-8">
     <title>Learn QUnit</title>
     <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-1.18.0.css">
+    <script src="lib/stopwatch.js"></script>
   </head>
   <body>
     <div id="qunit"></div>
     <div id="qunit-fixture"></div>
-    <script src="https://code.jquery.com/qunit/qunit-1.18.0.js"></script>
-    <script src="features.js"></script>
-    <script src="test/tests.js"></script>
-
     <dic id="">
       This projects aim to create a Timer/Stopwatch.
       it should:
@@ -22,6 +19,9 @@
         <li>Re-set the counter to Zero.</li>
       </ul>
     </div>
-
+    <script>console.log(T.timeStarted);</script>    
+    <!-- tests -->
+    <script src="https://code.jquery.com/qunit/qunit-1.18.0.js"></script>
+    <script src="test/tests.js"></script>
   </body>
 </html>

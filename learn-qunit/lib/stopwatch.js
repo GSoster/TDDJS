@@ -14,11 +14,24 @@ var T = (function () {
     return stopTime;
   }
 
+  var timing = function () {
+    setInterval(function () {
+      updateUI();
+    }, 20);
+  };
+
+  var updateUI = function  () {
+    now = new Date().getTime();
+    timeElapsed = now - startTime;
+    var timer = document.getElementById('timer');
+    timer.innerHTML = timeElapsed;
+  };
+
  //allow external access to private variables & methods by returning them:
   return {
     timeStarted: timeStarted,
     timeElapsed: timeElapsed,
     startTimer: startTimer,
-    stopTimer: stopTimer
+    stopTimer: stopTimer,
   };
 }());

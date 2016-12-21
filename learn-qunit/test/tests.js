@@ -19,3 +19,12 @@ test('stopTimer() stops counting after 2 seconds', function(){
   var result = T.stopTimer(expected);//2s
   equal(result, expected, true);
 });
+
+
+test('timeStarted should continue couting after stopTimer()', function () {
+  var startTime = new Date().getTime();
+  var endTime = startTime + 5000;
+  var timeElapsed = 0;
+  T.startTimer(startTime);
+  equal(T.stopTimer(endTime), 5000, true);//stoped after 5s
+});

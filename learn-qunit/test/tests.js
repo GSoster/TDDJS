@@ -38,3 +38,14 @@ test('stop timer two times: first with 5s elapsed time and second with 7s. Total
   T.startTimer(startTime);
   equal(T.stopTimer(endTime), 12000, true);//12s since it is 5s from the first stop plus 7s  from the second stop
 });
+
+
+test('startTimer should work even without parameter', function () {
+  var startTime = new Date().getTime();
+  equal(T.startTimer(), startTime, true);
+});
+
+/*test('resetTimer should reset to zero the startTimer and elapsed time', function () {
+  T.resetTimer();
+  T.startTimer();
+});*/

@@ -26,6 +26,7 @@ var T = (function () {
   var resetTimer = function () {
     timeElapsed = 0;
     timeStarted = 0;
+    return timeElapsed;
   };
 
   var updateUI = function  () {

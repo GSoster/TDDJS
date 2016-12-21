@@ -4,7 +4,7 @@ var T = (function () {
   var timeStarted = 0;//timestamp when timer was started
 
   var startTimer = function (startTime) {
-    timeStarted = startTime;
+    timeStarted = startTime || new Date().getTime();
     return timeStarted;
   };
 

@@ -2,6 +2,7 @@ var T = (function () {
   'use strict';
   var timeElapsed = 0;//number of miliseconds since timerStarted
   var timeStarted = 0;//timestamp when timer was started
+  var timeInterval;//keeps setInterval.
 
   /**
   * keeps the startTime and calls the timing method
@@ -9,6 +10,7 @@ var T = (function () {
   */
   var startTimer = function (startTime) {
     timeStarted = startTime || new Date().getTime();
+    timing();//this function sets the UI update
     return timeStarted;
   };
 
@@ -28,12 +30,12 @@ var T = (function () {
   }
 
 /**
-* It runs the updateUI method every 20 miliseconds
+* It runs the updateUI method every 1000 miliseconds (1s)
 */
   var timing = function () {
-    setInterval(function () {
+    timeInterval = setInterval(function () {
       updateUI();
-    }, 20);
+    }, 1000);
   };
 
   /**
@@ -43,6 +45,7 @@ var T = (function () {
   var resetTimer = function () {
     timeElapsed = 0;
     timeStarted = 0;
+    clearInterval(timeInterval);
     return timeElapsed;
   };
 
@@ -50,8 +53,8 @@ var T = (function () {
   * Updates the HTML to display the current time elapsed since the timer has started
   */
   var updateUI = function  () {
-    now = new Date().getTime();
-    timeElapsed = now - startTime;
+    var now = new Date().getTime();
+    timeElapsed = now - timeStarted;
     var timer = document.getElementById('timer');
     timer.innerHTML = timeElapsed;
   };
@@ -62,6 +65,8 @@ var T = (function () {
     timeElapsed: timeElapsed,
     startTimer: startTimer,
     stopTimer: stopTimer,
-    resetTimer: resetTimer
+    resetTimer: resetTimer,
+    timing: timing,
+    updateUI: updateUI,
   };
 }());

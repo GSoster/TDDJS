@@ -60,12 +60,13 @@ test('resetTimer should reset to zero the startTime and timeElapsed', function (
 test('stopTimer should work even without parameter', function () {
   T.resetTimer();
   var timeElapsed = 0;
-  //iniciar timer, armazenar horario
   var startTime = new Date().getTime();
   T.startTimer(startTime);
-  //esperar 3s,
-  setTimeout(function(){
-      timeElapsed = T.stopTimer();//should be 3s
+  var expected = 0;
+  setTimeout(function () {
+    var endTime = new Date().getTime();
+    expected = endTime - startTime;
   }, 3000);
-  equal(timeElapsed, 3000, true);  
+  timeElapsed = T.stopTimer();
+  equal(timeElapsed, expected, true);
 });

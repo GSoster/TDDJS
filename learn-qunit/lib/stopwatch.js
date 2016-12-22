@@ -13,12 +13,10 @@ var T = (function () {
   */
   var stopTimer = function (endTime) {
     //it sums the elapsed time in case it is not the first time the timer is being stopped.
-    console.log(endTime);
-    if (!endTime) {
-      console.log('entrou');
+    if (!endTime) {      
       endTime = new Date().getTime();
     }
-    console.log(endTime);
+
     timeElapsed = endTime - timeStarted + timeElapsed;
     return timeElapsed;
   }

@@ -9,7 +9,7 @@ var T = (function () {
   * @param time (Date().getTime()) when the timer has started.
   */
   var startTimer = function (startTime) {
-    timeStarted = startTime || new Date().getTime();
+    timeStarted = startTime || timeStarted || new Date().getTime();
     timing();//this function sets the UI update
     return timeStarted;
   };
@@ -20,6 +20,7 @@ var T = (function () {
   * @returns timeElapsed since beginning.
   */
   var stopTimer = function (endTime) {
+    console.log("stop called");
     //it sums the elapsed time in case it is not the first time the timer is being stopped.
     if (!endTime) {
       endTime = new Date().getTime();
@@ -35,7 +36,7 @@ var T = (function () {
   var timing = function () {
     timeInterval = setInterval(function () {
       updateUI();
-    }, 1000);
+    }, 20);
   };
 
   /**
@@ -43,9 +44,9 @@ var T = (function () {
   * @returns timeElapsed (int)
   */
   var resetTimer = function () {
+    clearInterval(timeInterval);
     timeElapsed = 0;
     timeStarted = 0;
-    clearInterval(timeInterval);
     return timeElapsed;
   };
 
@@ -54,9 +55,11 @@ var T = (function () {
   */
   var updateUI = function  () {
     var now = new Date().getTime();
-    timeElapsed = now - timeStarted;
+    var elapsed = now - timeStarted + timeElapsed;
+    var timeToDisplay = new Date(elapsed).toISOString().slice(11, -1);
     var timer = document.getElementById('timer');
-    timer.innerHTML = timeElapsed;
+    //timer.innerHTML = timeElapsed;
+    timer.innerHTML = timeToDisplay;
   };
 
  //allow external access to private variables & methods by returning them:

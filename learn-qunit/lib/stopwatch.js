@@ -27,6 +27,7 @@ var T = (function () {
     }
     clearInterval(timeInterval);
     timeElapsed = endTime - timeStarted + timeElapsed;
+    timeStarted = 0;
     return timeElapsed;
   }
 
@@ -47,6 +48,8 @@ var T = (function () {
     clearInterval(timeInterval);
     timeElapsed = 0;
     timeStarted = 0;
+    var timer = document.getElementById('timer');
+    timer.innerHTML = "00:00:00";
     return timeElapsed;
   };
 

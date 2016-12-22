@@ -24,7 +24,7 @@ var T = (function () {
     if (!endTime) {
       endTime = new Date().getTime();
     }
-
+    clearInterval(timeInterval);
     timeElapsed = endTime - timeStarted + timeElapsed;
     return timeElapsed;
   }
